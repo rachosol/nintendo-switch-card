@@ -100,6 +100,11 @@ export class NintendoSwitchCard extends LitElement {
   }
 
   private _telemetryFresh(ents: ResolvedEntities): boolean {
+    const onlineState = ents.telemetry_online
+      ? this.hass?.states[ents.telemetry_online]
+      : undefined;
+    if (onlineState) return onlineState.state === "on";
+
     const state = this.hass?.states[ents.telemetry_heartbeat];
     if (!state?.last_updated) return false;
     const ageMs = Date.now() - Date.parse(state.last_updated);

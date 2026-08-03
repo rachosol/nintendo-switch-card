@@ -1,6 +1,6 @@
 export const CARD_NAME = "nintendo-switch-card";
 export const EDITOR_NAME = `${CARD_NAME}-editor`;
-export const CARD_VERSION = "0.1.6";
+export const CARD_VERSION = "0.1.7";
 
 export const ENTITY_SUFFIXES = {
   battery_level: "battery_level",
@@ -18,6 +18,7 @@ export const ENTITY_SUFFIXES = {
   current_game_id: "current_game_id",
   player_count: "player_count",
   telemetry_heartbeat: "telemetry_heartbeat",
+  telemetry_online: "telemetry_online",
 } as const;
 
 export type EntityKey = keyof typeof ENTITY_SUFFIXES;

@@ -30,8 +30,9 @@ describe("types", () => {
       current_game_id: "sensor.x_current_game_id",
       player_count: "sensor.x_player_count",
       telemetry_heartbeat: "sensor.x_telemetry_heartbeat",
+      telemetry_online: "binary_sensor.x_telemetry_online",
     };
-    expect(Object.keys(r).length).toBe(15);
+    expect(Object.keys(r).length).toBe(16);
   });
 
   it("StateLine has text and color", () => {

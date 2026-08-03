@@ -56,6 +56,7 @@ entities:
   current_game: sensor.nintendo_switch_current_game_2
   current_game_id: sensor.nintendo_switch_current_game_id
   telemetry_heartbeat: sensor.nintendo_switch_telemetry_heartbeat_2
+  telemetry_online: binary_sensor.nintendo_switch_telemetry_online
 ```
 
 Use the IDs listed in **Settings → Devices & services → Entities** for your own installation. The card needs `battery_level` and `is_charging`; the remaining entries are optional but enable their respective display features.

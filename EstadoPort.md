@@ -44,6 +44,19 @@ deployed with the resource query
 `v=0.1.6-heartbeat-refresh`, with pre-deployment backups and a successful
 `ha core check`.
 
+## Sleep heartbeat cadence (2026-08-03)
+
+Version `0.1.7` adds an optional `telemetry_online` binary-entity override.
+When supplied, it is authoritative for the state line; otherwise the card
+keeps the generic heartbeat-age fallback. In this Home Assistant installation
+it is bound to `binary_sensor.nintendo_switch_telemetry_online`, whose package
+requires a heartbeat train for at least 45 seconds with gaps below one minute.
+This filters isolated sleep pulses sent roughly every three minutes. The build
+SHA-256 is
+`84aa42ebe67f8f503b3b18adb923ec9f30537daf6cbf8dafba8310cbd753fb52`; it is
+deployed as `v=0.1.7-telemetry-cadence` after backing up the card, Lovelace
+resource registry and dashboard. `ha core check` passed.
+
 ## Publication status (2026-08-03)
 
 Published at https://github.com/rachosol/nintendo-switch-card as root commit

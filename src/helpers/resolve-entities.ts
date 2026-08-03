@@ -1,7 +1,7 @@
 import { ENTITY_SUFFIXES, type EntityKey } from "../const";
 import type { NintendoSwitchCardConfig, ResolvedEntities } from "../types";
 
-const BINARY_KEYS: EntityKey[] = ["is_charging", "game_running"];
+const BINARY_KEYS: EntityKey[] = ["is_charging", "game_running", "telemetry_online"];
 
 function defaultDomain(key: EntityKey): "sensor" | "binary_sensor" {
   return BINARY_KEYS.includes(key) ? "binary_sensor" : "sensor";
