@@ -22,7 +22,7 @@ native MQTT telemetry produced by Switch HA Native.
 
 ## Publication status (2026-08-03)
 
-The local port is committed as `14081ec` and ready to publish. The requested
-repository does not yet exist, and this environment has no GitHub HTTPS
-credential or GitHub CLI available to create it through the API. SSH access is
-valid for pushing to existing repositories only.
+Published at https://github.com/rachosol/nintendo-switch-card as root commit
+`5e2a2db` on `main`. The repository uses an independent root history, avoiding
+the incomplete object ancestry from the upstream local clone. The upstream
+license and attribution remain included.
