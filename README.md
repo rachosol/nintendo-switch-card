@@ -1,7 +1,7 @@
 # Nintendo Switch Card
 
 <p align="center">
-  <img src="assets/example.png" alt="Nintendo Switch Card example" width="500">
+  <img src="assets/example.png?v=4f3d5c1" alt="Nintendo Switch Card example" width="500">
 </p>
 
 An independent Home Assistant Lovelace port of [Nintendo Switch Card](https://github.com/hudsonbrendon/nintendo-switch-card), adapted by [rachosol](https://github.com/rachosol) for the native MQTT telemetry published by [Switch HA Native](https://github.com/rachosol/switch-ha-native-port).
