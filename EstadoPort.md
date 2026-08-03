@@ -32,6 +32,18 @@ It is deployed to Home Assistant at
 previous JavaScript file and `lovelace_resources` were created before the
 switch, and `ha core check` passed after Core restarted.
 
+## Freshness correction (2026-08-03)
+
+Version `0.1.6` fixes a visual stale-state edge case: retained MQTT telemetry
+may stop when the console sleeps, but Home Assistant emits no later state
+change to trigger a card render. The card now reevaluates the heartbeat age
+once per minute and changes to possible sleep after three minutes without a
+publication. The verified build SHA-256 is
+`04239ec2f0910e9b70207a15336abd96ba9dcbb79f869a5a95f3335fd8a1aea8`; it is
+deployed with the resource query
+`v=0.1.6-heartbeat-refresh`, with pre-deployment backups and a successful
+`ha core check`.
+
 ## Publication status (2026-08-03)
 
 Published at https://github.com/rachosol/nintendo-switch-card as root commit

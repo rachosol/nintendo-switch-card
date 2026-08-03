@@ -40,6 +40,22 @@ export class NintendoSwitchCard extends LitElement {
 
   @property({ attribute: false }) hass?: HassObject;
   @state() private _config?: NintendoSwitchCardConfig;
+  private _freshnessTimer?: number;
+
+  connectedCallback(): void {
+    super.connectedCallback();
+    // HA does not emit a state change when the Switch stops publishing. Refresh
+    // locally so a previously fresh retained heartbeat can age into sleep.
+    this._freshnessTimer = window.setInterval(() => this.requestUpdate(), 60_000);
+  }
+
+  disconnectedCallback(): void {
+    if (this._freshnessTimer !== undefined) {
+      window.clearInterval(this._freshnessTimer);
+      this._freshnessTimer = undefined;
+    }
+    super.disconnectedCallback();
+  }
 
   setConfig(config: NintendoSwitchCardConfig): void {
     if (!config) throw new Error("invalid_config: config is empty");
