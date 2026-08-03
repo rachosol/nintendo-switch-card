@@ -8,6 +8,10 @@ An independent Home Assistant Lovelace port of [Nintendo Switch Card](https://gi
 
 The custom card name remains `custom:nintendo-switch-card` for compatibility. This port intentionally omits the retired streaming, notification, remote power, audio, controller and charger-type presentation from the original Switch Assistant-oriented setup.
 
+## Original project
+
+This port is based on the original [Nintendo Switch Card by Hudson Brendon](https://github.com/hudsonbrendon/nintendo-switch-card). Its source, design and MIT license are the foundation for this derivative work; the original copyright notice is preserved in [LICENSE](LICENSE).
+
 ## Features
 
 - Header with battery percentage, charging state and battery voltage.
@@ -73,6 +77,10 @@ This is a derivative port of Hudson Brendon's Nintendo Switch Card. The upstream
 Port independiente de la tarjeta Lovelace [Nintendo Switch Card](https://github.com/hudsonbrendon/nintendo-switch-card), adaptado por [rachosol](https://github.com/rachosol) para la telemetría MQTT nativa de [Switch HA Native](https://github.com/rachosol/switch-ha-native-port).
 
 Conserva el nombre `custom:nintendo-switch-card` para compatibilidad. Muestra porcentaje, estado de carga y voltaje de batería en el encabezado; además, juego actual, estado de consola, temperatura, salud y pulso de telemetría. Las funciones retiradas del esquema antiguo (streaming, notificaciones, controles remotos, audio, mandos y tipo de cargador) no forman parte de este port.
+
+## Proyecto original
+
+Este port se basa en el proyecto original [Nintendo Switch Card de Hudson Brendon](https://github.com/hudsonbrendon/nintendo-switch-card). Su código, diseño y licencia MIT son la base de este trabajo derivado; el aviso de copyright original se conserva en [LICENSE](LICENSE).
 
 Para instalarla, copia `dist/nintendo-switch-card.js` a `/config/www/`, añade `/local/nintendo-switch-card.js` como recurso JavaScript y agrega una tarjeta al dashboard. La configuración de ejemplo en inglés es válida también en español. Si Home Assistant añade el sufijo `_2` tras una limpieza MQTT, usa los IDs reales de tu registro de entidades en la sección `entities`.
 
