@@ -28,3 +28,7 @@ the incomplete object ancestry from the upstream local clone. The upstream
 license and attribution remain included. Commit `a11c148` adds an explicit
 English and Spanish reference to the original Hudson Brendon repository in the
 README.
+
+Commit `4f3d5c1` replaces the README example image with a native-telemetry
+mockup that shows charging state, voltage, battery percentage, current game,
+temperature, health and telemetry heartbeat.
