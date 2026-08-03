@@ -32,3 +32,7 @@ README.
 Commit `4f3d5c1` replaces the README example image with a native-telemetry
 mockup that shows charging state, voltage, battery percentage, current game,
 temperature, health and telemetry heartbeat.
+
+GitHub serves the new image with the verified hash, but the README URL was
+cached by browsers. Commit `6a7e89f` appends the image revision query string
+to force the refreshed preview.
