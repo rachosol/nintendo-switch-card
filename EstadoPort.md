@@ -8,17 +8,29 @@ native MQTT telemetry produced by Switch HA Native.
 ## Current state
 
 - Keeps the compatible card type `custom:nintendo-switch-card`.
-- Shows battery percentage, charging state and voltage in the header.
+- Shows battery percentage, charging state and voltage in a three-part header.
+- Uses a white Joy-Con illustration by default.
 - Uses native telemetry for game, console state, heartbeat, health and
-  temperature; retired Switch Assistant-only features are not presented.
+  temperature; the four default statistics are voltage, temperature, health
+  and telemetry heartbeat. Retired Switch Assistant-only features are not
+  presented.
 - Supports manual entity overrides, including Home Assistant IDs with `_2`
   suffixes after MQTT discovery cleanup.
 - Carries the upstream MIT license and port attribution.
 
-## Next actions
+## Deployment status (2026-08-03)
 
-- Create the public GitHub repository `rachosol/nintendo-switch-card`, then
-  set it as `origin` and push the verified initial commit.
+Version `0.1.5` implements the white Joy-Con visual variant and replaces the
+unused charger-type statistic with the native MQTT telemetry heartbeat. It was
+verified with 79 tests, TypeScript type checking and a Rollup build. The built
+asset SHA-256 is
+`e398438323c296994b6b7d6ed17d847075a4fdec6b269eb88f67352893530fb5`.
+
+It is deployed to Home Assistant at
+`/config/www/nintendo-switch-card.js`; the Lovelace resource is
+`/local/nintendo-switch-card.js?v=0.1.5-white-telemetry`. Backups of both the
+previous JavaScript file and `lovelace_resources` were created before the
+switch, and `ha core check` passed after Core restarted.
 
 ## Publication status (2026-08-03)
 

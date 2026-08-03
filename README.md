@@ -14,10 +14,11 @@ This port is based on the original [Nintendo Switch Card by Hudson Brendon](http
 
 ## Features
 
-- Header with battery percentage, charging state and battery voltage.
+- Header laid out with battery percentage, charging state and battery voltage.
+- White Joy-Con illustration, matching a white-console setup.
 - Current game, including title IDs resolved by Switch HA Native.
 - Freshness-aware console state using the telemetry heartbeat.
-- Default stats for voltage, battery temperature and battery health.
+- Default stats for voltage, battery temperature, battery health and telemetry heartbeat.
 - English, Spanish and Brazilian Portuguese user interface.
 - Explicit entity overrides for installations whose Home Assistant entity IDs include a suffix such as `_2` after a prior MQTT discovery cleanup.
 
@@ -76,7 +77,7 @@ This is a derivative port of Hudson Brendon's Nintendo Switch Card. The upstream
 
 Port independiente de la tarjeta Lovelace [Nintendo Switch Card](https://github.com/hudsonbrendon/nintendo-switch-card), adaptado por [rachosol](https://github.com/rachosol) para la telemetría MQTT nativa de [Switch HA Native](https://github.com/rachosol/switch-ha-native-port).
 
-Conserva el nombre `custom:nintendo-switch-card` para compatibilidad. Muestra porcentaje, estado de carga y voltaje de batería en el encabezado; además, juego actual, estado de consola, temperatura, salud y pulso de telemetría. Las funciones retiradas del esquema antiguo (streaming, notificaciones, controles remotos, audio, mandos y tipo de cargador) no forman parte de este port.
+Conserva el nombre `custom:nintendo-switch-card` para compatibilidad. Muestra porcentaje, estado de carga y voltaje de batería en el encabezado; además, juego actual, estado de consola, temperatura, salud y pulso de telemetría. La ilustración predeterminada usa Joy-Con blancos. Las funciones retiradas del esquema antiguo (streaming, notificaciones, controles remotos, audio, mandos y tipo de cargador) no forman parte de este port.
 
 ## Proyecto original
 

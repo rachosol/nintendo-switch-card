@@ -16,6 +16,7 @@
     "players": "Mandos",
     "health": "Salud",
     "temperature": "Temperatura",
+    "telemetry": "Telemetría",
     "charger": "Cargador"
   },
   "action": {

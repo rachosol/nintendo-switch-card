@@ -37,7 +37,7 @@ describe("header", () => {
 
   it("shows the disconnected charger icon", async () => {
     const c = await mountCard({ charger_type: "unconnected" });
-    expect(c.shadowRoot?.querySelector(".header-item.volume ha-icon")?.getAttribute("icon")).toBe("mdi:power-plug-off");
+    expect(c.shadowRoot?.querySelector(".header-item.charge ha-icon")?.getAttribute("icon")).toBe("mdi:power-plug-off");
     c.remove();
   });
 

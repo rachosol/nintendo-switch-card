@@ -9,17 +9,12 @@ export const cardStyles = css`
     font-family: var(--primary-font-family, -apple-system, system-ui, sans-serif);
   }
   .header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 12px 16px 0;
     font-size: 14px;
     color: var(--secondary-text-color, #666);
-  }
-  .header-left {
-    display: flex;
-    gap: 14px;
-    align-items: center;
   }
   .header-item {
     display: flex;
@@ -30,6 +25,8 @@ export const cardStyles = css`
     --mdc-icon-size: 18px;
     opacity: 0.75;
   }
+  .header-item.voltage { justify-self: center; }
+  .header-item.battery { justify-self: end; }
   .header-item.charging-pulse {
     color: #00a854;
     animation: pulse 1.5s ease-in-out infinite;
@@ -37,11 +34,6 @@ export const cardStyles = css`
   .header-item.battery-low {
     color: #d32f2f;
     animation: battery-low 1s ease-in-out infinite;
-  }
-  .menu {
-    color: var(--secondary-text-color, #999);
-    cursor: pointer;
-    padding: 0 6px;
   }
   .hero {
     padding: 18px 12px 8px;

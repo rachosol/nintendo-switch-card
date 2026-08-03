@@ -16,6 +16,7 @@
     "players": "Players",
     "health": "Health",
     "temperature": "Temperature",
+    "telemetry": "Telemetry",
     "charger": "Charger"
   },
   "action": {

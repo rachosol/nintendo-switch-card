@@ -117,21 +117,18 @@ export class NintendoSwitchCard extends LitElement {
 
     return html`
       <div class="header">
-        <div class="header-left">
-          <div class="header-item volume">
-            <ha-icon icon="${charging ? "mdi:power-plug" : "mdi:power-plug-off"}"></ha-icon>
-            <span>${chargeText}</span>
-          </div>
-          <div class="header-item voltage">
-            <ha-icon icon="mdi:flash-outline"></ha-icon>
-            <span>${voltage}</span>
-          </div>
-          <div class="header-item battery ${charging ? "charging-pulse" : ""} ${isLow ? "battery-low" : ""}">
-            <ha-icon icon="${charging ? "mdi:flash" : "mdi:battery"}"></ha-icon>
-            <span>${battery === "unavailable" ? "—" : `${battery}%`}</span>
-          </div>
+        <div class="header-item charge">
+          <ha-icon icon="${charging ? "mdi:power-plug" : "mdi:power-plug-off"}"></ha-icon>
+          <span>${chargeText}</span>
         </div>
-        <div class="menu">⋮</div>
+        <div class="header-item voltage">
+          <ha-icon icon="mdi:flash-outline"></ha-icon>
+          <span>${voltage}</span>
+        </div>
+        <div class="header-item battery ${charging ? "charging-pulse" : ""} ${isLow ? "battery-low" : ""}">
+          <ha-icon icon="${charging ? "mdi:flash" : "mdi:battery"}"></ha-icon>
+          <span>${battery === "unavailable" ? "—" : `${battery}%`}</span>
+        </div>
       </div>
     `;
   }
@@ -171,7 +168,7 @@ export class NintendoSwitchCard extends LitElement {
       { entity: ents.battery_voltage, unit: "V", multiply: 0.001, precision: 2, subtitle: "stat.voltage" },
       { entity: ents.battery_temperature, unit: "°C", precision: 1, subtitle: "stat.temperature" },
       { entity: ents.battery_health, unit: "%", precision: 0, subtitle: "stat.health" },
-      { entity: ents.charger_type, subtitle: "stat.charger" },
+      { entity: ents.telemetry_heartbeat, precision: 0, subtitle: "stat.telemetry" },
     ];
   }
 

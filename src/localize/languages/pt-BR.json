@@ -16,6 +16,7 @@
     "players": "Jogadores",
     "health": "Saúde",
     "temperature": "Temperatura",
+    "telemetry": "Telemetria",
     "charger": "Carregador"
   },
   "action": {

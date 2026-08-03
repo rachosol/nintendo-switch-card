@@ -28,7 +28,7 @@ describe("stats grid", () => {
       battery_voltage: "4123",
       battery_health: "100",
       battery_temperature: "37.2",
-      charger_type: "enough_power",
+      telemetry_heartbeat: "74",
     });
     const stats = c.shadowRoot?.querySelectorAll(".stat");
     expect(stats?.length).toBe(4);
@@ -36,7 +36,7 @@ describe("stats grid", () => {
     expect(text).toContain("4.12");
     expect(text).toContain("37.2");
     expect(text).toContain("Health");
-    expect(text).toContain("Charger");
+    expect(text).toContain("Telemetry");
     c.remove();
   });
 

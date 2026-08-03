@@ -10,14 +10,14 @@ describe("svgHandheld", () => {
     ).toBe(true);
   });
 
-  it("includes Joy-Con neon blue color #0AB9E6", () => {
+  it("uses a white Joy-Con finish", () => {
     const raw = (svgHandheld as unknown as { strings: TemplateStringsArray }).strings.join("");
-    expect(raw.toLowerCase()).toContain("#0ab9e6");
+    expect(raw.toLowerCase()).toContain("#ffffff");
   });
 
-  it("includes Joy-Con neon red color #E60012", () => {
+  it("includes a subtle Joy-Con shell outline", () => {
     const raw = (svgHandheld as unknown as { strings: TemplateStringsArray }).strings.join("");
-    expect(raw.toLowerCase()).toContain("#e60012");
+    expect(raw.toLowerCase()).toContain("#b9c0c4");
   });
 
   it("uses viewBox 0 0 600 200", () => {
