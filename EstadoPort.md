@@ -36,3 +36,6 @@ temperature, health and telemetry heartbeat.
 GitHub serves the new image with the verified hash, but the README URL was
 cached by browsers. Commit `6a7e89f` appends the image revision query string
 to force the refreshed preview.
+
+For clients that retained the old URL despite that query, commit `94f703d`
+adds `assets/example-native-mqtt.png` and points the README to this new path.
