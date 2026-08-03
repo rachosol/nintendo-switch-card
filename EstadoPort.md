@@ -25,4 +25,6 @@ native MQTT telemetry produced by Switch HA Native.
 Published at https://github.com/rachosol/nintendo-switch-card as root commit
 `5e2a2db` on `main`. The repository uses an independent root history, avoiding
 the incomplete object ancestry from the upstream local clone. The upstream
-license and attribution remain included.
+license and attribution remain included. Commit `a11c148` adds an explicit
+English and Spanish reference to the original Hudson Brendon repository in the
+README.
