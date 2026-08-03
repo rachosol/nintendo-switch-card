@@ -1,0 +1,31 @@
+{
+  "state": {
+    "standby": "Standby",
+    "home": "Home",
+    "awake": "Awake · no game",
+    "possible_sleep": "No telemetry · possibly asleep",
+    "running": "Running",
+    "charging": "Charging",
+    "not_charging": "Not charging",
+    "unavailable": "Unavailable"
+  },
+  "stat": {
+    "brightness": "Brightness",
+    "volume": "Volume",
+    "voltage": "Voltage",
+    "players": "Players",
+    "health": "Health",
+    "temperature": "Temperature",
+    "charger": "Charger"
+  },
+  "action": {
+    "reboot": "Reboot",
+    "shutdown": "Shutdown",
+    "notify": "Notify",
+    "notify_prompt": "Message to send to the Switch:"
+  },
+  "error": {
+    "no_entity": "Missing required entity configuration",
+    "invalid_config": "Invalid configuration"
+  }
+}

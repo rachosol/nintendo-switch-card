@@ -1,0 +1,31 @@
+{
+  "state": {
+    "standby": "En reposo",
+    "home": "Inicio",
+    "awake": "Encendida · sin juego",
+    "possible_sleep": "Sin telemetría · posible reposo",
+    "running": "En ejecución",
+    "charging": "Cargando",
+    "not_charging": "Sin carga",
+    "unavailable": "Desconectada"
+  },
+  "stat": {
+    "brightness": "Brillo",
+    "volume": "Volumen",
+    "voltage": "Voltaje",
+    "players": "Mandos",
+    "health": "Salud",
+    "temperature": "Temperatura",
+    "charger": "Cargador"
+  },
+  "action": {
+    "reboot": "Reiniciar",
+    "shutdown": "Apagar",
+    "notify": "Notificar",
+    "notify_prompt": "Mensaje para enviar a la Switch:"
+  },
+  "error": {
+    "no_entity": "Falta la configuración de entidad requerida",
+    "invalid_config": "Configuración no válida"
+  }
+}
