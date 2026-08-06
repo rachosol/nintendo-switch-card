@@ -1,5 +1,6 @@
 {
   "name": "Nintendo Switch Card",
+  "content_in_root": false,
   "render_readme": true,
   "filename": "dist/nintendo-switch-card.js",
   "homeassistant": "2024.1.0"
