@@ -6,7 +6,6 @@ export interface StateLineInput {
   gameRunning: string;
   currentGame: string;
   chargerType: string;
-  telemetryFresh: boolean;
   anyUnavailable: boolean;
   lang: string;
 }
@@ -22,9 +21,6 @@ export function computeStateLine(input: StateLineInput): StateLine {
     ? input.currentGame
     : localize("state.running", input.lang);
 
-  if (!input.telemetryFresh) {
-    return { text: localize("state.possible_sleep", input.lang), color: "muted" };
-  }
   if (charging && running) {
     return {
       text: `⚡ ${localize("state.charging", input.lang)} · ▶ ${gameLabel}`,

@@ -35,9 +35,9 @@ describe("name and state line", () => {
     c.remove();
   });
 
-  it("shows awake while recent telemetry reports no game", async () => {
+  it("shows no game running without inferring power state from telemetry", async () => {
     const c = await mountCard({ entity: "ns" });
-    expect(c.shadowRoot?.querySelector(".state")?.textContent).toContain("Awake");
+    expect(c.shadowRoot?.querySelector(".state")?.textContent).toContain("No game running");
     c.remove();
   });
 
@@ -46,7 +46,7 @@ describe("name and state line", () => {
     const el = c.shadowRoot?.querySelector(".state");
     expect(el?.classList.contains("charging")).toBe(true);
     expect(el?.textContent).toContain("⚡");
-    expect(el?.textContent).toContain("Awake");
+    expect(el?.textContent).toContain("No game running");
     c.remove();
   });
 
@@ -60,7 +60,7 @@ describe("name and state line", () => {
 
   it("shows pt-BR strings when language=pt-BR", async () => {
     const c = await mountCard({ entity: "ns", language: "pt-BR" });
-    expect(c.shadowRoot?.querySelector(".state")?.textContent).toContain("Ligada");
+    expect(c.shadowRoot?.querySelector(".state")?.textContent).toContain("Nenhum jogo em execução");
     c.remove();
   });
 });

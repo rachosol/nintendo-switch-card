@@ -2,8 +2,7 @@
   "state": {
     "standby": "En reposo",
     "home": "Inicio",
-    "awake": "Encendida · sin juego",
-    "possible_sleep": "Sin telemetría · posible reposo",
+    "awake": "Sin juego en ejecución",
     "running": "En ejecución",
     "charging": "Cargando",
     "not_charging": "Sin carga",

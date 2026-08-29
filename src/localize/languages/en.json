@@ -2,8 +2,7 @@
   "state": {
     "standby": "Standby",
     "home": "Home",
-    "awake": "Awake · no game",
-    "possible_sleep": "No telemetry · possibly asleep",
+    "awake": "No game running",
     "running": "Running",
     "charging": "Charging",
     "not_charging": "Not charging",

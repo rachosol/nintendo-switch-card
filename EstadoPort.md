@@ -57,6 +57,23 @@ SHA-256 is
 deployed as `v=0.1.7-telemetry-cadence` after backing up the card, Lovelace
 resource registry and dashboard. `ha core check` passed.
 
+## Telemetry cadence neutralization (2026-08-28)
+
+The owner verified that telemetry continues in sleep, but at a lower cadence;
+the same lower cadence also occurs while the console runs only on battery.
+Cadence therefore cannot establish either sleep or active use. Version `0.1.8`
+removes the heartbeat-age timer and the optional `telemetry_online` override
+from the card's state line. It now reports only the game and charging states,
+while actual unavailable essential entities still show an error. The verified
+build SHA-256 is
+`40a37471d818715e7362a8c337a4fdb9d3594915d4302479d0f39615be3630d3`.
+
+It is deployed at `/config/www/nintendo-switch-card.js`; the Lovelace resource
+is `/local/nintendo-switch-card.js?v=0.1.8-cadence-neutral`. A pre-change
+backup is in Home Assistant at
+`.codex-backups/nintendo-switch-card-v0.1.8-20260828-214054`, and `ha core
+check` completed successfully.
+
 ## Publication status (2026-08-03)
 
 Published at https://github.com/rachosol/nintendo-switch-card as root commit

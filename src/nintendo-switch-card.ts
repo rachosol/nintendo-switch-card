@@ -40,23 +40,6 @@ export class NintendoSwitchCard extends LitElement {
 
   @property({ attribute: false }) hass?: HassObject;
   @state() private _config?: NintendoSwitchCardConfig;
-  private _freshnessTimer?: number;
-
-  connectedCallback(): void {
-    super.connectedCallback();
-    // HA does not emit a state change when the Switch stops publishing. Refresh
-    // locally so a previously fresh retained heartbeat can age into sleep.
-    this._freshnessTimer = window.setInterval(() => this.requestUpdate(), 60_000);
-  }
-
-  disconnectedCallback(): void {
-    if (this._freshnessTimer !== undefined) {
-      window.clearInterval(this._freshnessTimer);
-      this._freshnessTimer = undefined;
-    }
-    super.disconnectedCallback();
-  }
-
   setConfig(config: NintendoSwitchCardConfig): void {
     if (!config) throw new Error("invalid_config: config is empty");
     const hasPrefix = typeof config.entity === "string" && config.entity.length > 0;
@@ -97,18 +80,6 @@ export class NintendoSwitchCard extends LitElement {
   private _stateOf(entityId: string): string {
     if (!this.hass || !entityId) return "unavailable";
     return this.hass.states[entityId]?.state ?? "unavailable";
-  }
-
-  private _telemetryFresh(ents: ResolvedEntities): boolean {
-    const onlineState = ents.telemetry_online
-      ? this.hass?.states[ents.telemetry_online]
-      : undefined;
-    if (onlineState) return onlineState.state === "on";
-
-    const state = this.hass?.states[ents.telemetry_heartbeat];
-    if (!state?.last_updated) return false;
-    const ageMs = Date.now() - Date.parse(state.last_updated);
-    return Number.isFinite(ageMs) && ageMs >= 0 && ageMs <= 180_000;
   }
 
   private _resolveLang(): string {
@@ -177,7 +148,6 @@ export class NintendoSwitchCard extends LitElement {
       gameRunning: this._stateOf(ents.game_running),
       currentGame: this._stateOf(ents.current_game),
       chargerType: this._stateOf(ents.charger_type),
-      telemetryFresh: this._telemetryFresh(ents),
       anyUnavailable,
       lang: this._resolveLang(),
     });

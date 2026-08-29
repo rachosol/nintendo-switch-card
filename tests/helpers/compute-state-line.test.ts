@@ -9,16 +9,11 @@ const baseInputs = (over: Partial<StateLineInput> = {}): StateLineInput => ({
   anyUnavailable: false,
   lang: "en",
   ...over,
-  telemetryFresh: over.telemetryFresh ?? true,
 });
 
 describe("computeStateLine", () => {
   it("returns awake by default", () => {
-    expect(computeStateLine(baseInputs())).toEqual({ text: "Awake · no game", color: "default" });
-  });
-
-  it("reports possible sleep when telemetry is stale", () => {
-    expect(computeStateLine(baseInputs({ telemetryFresh: false }))).toEqual({ text: "No telemetry · possibly asleep", color: "muted" });
+    expect(computeStateLine(baseInputs())).toEqual({ text: "No game running", color: "default" });
   });
 
   it("returns running with game name when game_running=on", () => {
@@ -33,7 +28,7 @@ describe("computeStateLine", () => {
 
   it("returns charging when is_charging=on and not running", () => {
     const r = computeStateLine(baseInputs({ isCharging: "on", chargerType: "enough_power" }));
-    expect(r).toEqual({ text: "⚡ Charging · Awake · no game", color: "charging" });
+    expect(r).toEqual({ text: "⚡ Charging · No game running", color: "charging" });
   });
 
   it("returns charging+running when both on", () => {
@@ -50,6 +45,6 @@ describe("computeStateLine", () => {
 
   it("uses pt-BR localization", () => {
     const r = computeStateLine(baseInputs({ lang: "pt-BR" }));
-    expect(r.text).toBe("Ligada · sem jogo");
+    expect(r.text).toBe("Nenhum jogo em execução");
   });
 });
