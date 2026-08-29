@@ -74,6 +74,8 @@ backup is in Home Assistant at
 `.codex-backups/nintendo-switch-card-v0.1.8-20260828-214054`, and `ha core
 check` completed successfully.
 
+The change is published on GitHub `main` as commit `5feec9d`.
+
 ## Publication status (2026-08-03)
 
 Published at https://github.com/rachosol/nintendo-switch-card as root commit
