@@ -6,6 +6,7 @@ export interface StateLineInput {
   gameRunning: string;
   currentGame: string;
   chargerType: string;
+  telemetryOnline: string;
   anyUnavailable: boolean;
   lang: string;
 }
@@ -20,6 +21,18 @@ export function computeStateLine(input: StateLineInput): StateLine {
   const gameLabel = input.currentGame && input.currentGame !== "Unknown"
     ? input.currentGame
     : localize("state.running", input.lang);
+
+  /* `game_running` is retained MQTT state.  The native module can still
+   * report the suspended game's process while the console sleeps, so only
+   * present it as a current activity if HA has observed a continuous
+   * telemetry session.  `unknown` preserves the historical behaviour for
+   * configurations that do not opt into this optional helper. */
+  if (running && input.telemetryOnline === "off") {
+    return {
+      text: `${localize("state.activity_unconfirmed", input.lang)} · ${localize("state.last_session", input.lang)}: ${gameLabel}`,
+      color: "muted",
+    };
+  }
 
   if (charging && running) {
     return {

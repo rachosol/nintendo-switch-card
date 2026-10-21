@@ -58,6 +58,18 @@ describe("name and state line", () => {
     c.remove();
   });
 
+  it("labels a game as the last session when the configured telemetry helper is off", async () => {
+    const c = await mountCard(
+      { entity: "ns", entities: { telemetry_online: "binary_sensor.ns_telemetry_online" } },
+      { game_running: "on", current_game: "Mario", telemetry_online: "off" }
+    );
+    const el = c.shadowRoot?.querySelector(".state");
+    expect(el?.classList.contains("muted")).toBe(true);
+    expect(el?.textContent).toContain("Activity not confirmed");
+    expect(el?.textContent).toContain("Last session: Mario");
+    c.remove();
+  });
+
   it("shows pt-BR strings when language=pt-BR", async () => {
     const c = await mountCard({ entity: "ns", language: "pt-BR" });
     expect(c.shadowRoot?.querySelector(".state")?.textContent).toContain("Nenhum jogo em execução");

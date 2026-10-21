@@ -9,6 +9,7 @@ describe("resolveEntities", () => {
     expect(r.battery_level).toBe("sensor.ns_battery_level");
     expect(r.is_charging).toBe("binary_sensor.ns_is_charging");
     expect(r.game_running).toBe("binary_sensor.ns_game_running");
+    expect(r.telemetry_online).toBe("binary_sensor.ns_telemetry_online");
     expect(r.current_game).toBe("sensor.ns_current_game");
     expect(r.player_count).toBe("sensor.ns_player_count");
   });

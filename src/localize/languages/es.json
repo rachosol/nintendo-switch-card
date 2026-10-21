@@ -3,6 +3,8 @@
     "standby": "En reposo",
     "home": "Inicio",
     "awake": "Sin juego en ejecución",
+    "activity_unconfirmed": "Actividad no confirmada",
+    "last_session": "Última sesión",
     "running": "En ejecución",
     "charging": "Cargando",
     "not_charging": "Sin carga",

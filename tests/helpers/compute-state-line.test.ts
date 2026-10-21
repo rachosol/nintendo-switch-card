@@ -6,6 +6,7 @@ const baseInputs = (over: Partial<StateLineInput> = {}): StateLineInput => ({
   gameRunning: "off",
   currentGame: "Unknown",
   chargerType: "none",
+  telemetryOnline: "unknown",
   anyUnavailable: false,
   lang: "en",
   ...over,
@@ -19,6 +20,18 @@ describe("computeStateLine", () => {
   it("returns running with game name when game_running=on", () => {
     const r = computeStateLine(baseInputs({ gameRunning: "on", currentGame: "Zelda: TOTK" }));
     expect(r).toEqual({ text: "▶ Zelda: TOTK", color: "default" });
+  });
+
+  it("does not present retained game state as current activity when telemetry is offline", () => {
+    const r = computeStateLine(baseInputs({
+      gameRunning: "on",
+      currentGame: "Zelda: Majora's Mask",
+      telemetryOnline: "off",
+    }));
+    expect(r).toEqual({
+      text: "Activity not confirmed · Last session: Zelda: Majora's Mask",
+      color: "muted",
+    });
   });
 
   it("returns running with localized fallback when current_game is Unknown", () => {

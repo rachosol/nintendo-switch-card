@@ -3,6 +3,8 @@
     "standby": "Standby",
     "home": "Home",
     "awake": "No game running",
+    "activity_unconfirmed": "Activity not confirmed",
+    "last_session": "Last session",
     "running": "Running",
     "charging": "Charging",
     "not_charging": "Not charging",

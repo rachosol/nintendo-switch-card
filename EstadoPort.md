@@ -76,6 +76,24 @@ check` completed successfully.
 
 The change is published on GitHub `main` as commit `5feec9d`.
 
+## Activity confidence correction (2026-08-28)
+
+Version `0.1.9` distinguishes a current game from retained game state when
+the configured optional `telemetry_online` helper is `off`. Rather than
+claiming that the console is playing, it renders `Activity not confirmed ·
+Last session: <game>` (localized), which correctly represents the observed
+sleep case where Horizon still exposes the suspended game's process. It does
+not infer that the console is definitively asleep, because low telemetry
+cadence can also occur during battery-powered use.
+
+The card is deployed at `/config/www/nintendo-switch-card.js` with SHA-256
+`7237413295546bf7bf624342c940d040b960733ea78cb931ec263c958daadfe1`; the
+Lovelace resource is `/local/nintendo-switch-card.js?v=0.1.9-activity-confidence`.
+A pre-deployment copy is stored in Home Assistant under
+`.codex-backups/nintendo-switch-card-v0.1.9-20260828-2310`. The 80 tests,
+TypeScript type check, Rollup build, deployed hash and `ha core check` all
+passed. This local implementation has not yet been published to GitHub.
+
 ## Publication status (2026-08-03)
 
 Published at https://github.com/rachosol/nintendo-switch-card as root commit

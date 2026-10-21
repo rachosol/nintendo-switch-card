@@ -139,6 +139,9 @@ export class NintendoSwitchCard extends LitElement {
       gameRunning: this._stateOf(ents.game_running),
       currentGame: this._stateOf(ents.current_game),
       chargerType: this._stateOf(ents.charger_type),
+      telemetryOnline: this._config?.entities?.telemetry_online
+        ? this._stateOf(ents.telemetry_online)
+        : "unknown",
       anyUnavailable,
       lang: this._resolveLang(),
     });

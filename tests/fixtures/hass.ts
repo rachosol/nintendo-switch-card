@@ -25,6 +25,7 @@ export interface MockHassOpts {
   current_game_id?: string;
   player_count?: string;
   telemetry_heartbeat?: string;
+  telemetry_online?: string;
   language?: string;
   unavailable?: string[];
 }
@@ -59,6 +60,7 @@ export function mockHass(opts: MockHassOpts = {}): MockHass {
       ...mockEntity(`sensor.${p}_telemetry_heartbeat`, opts.telemetry_heartbeat ?? "1"),
       last_updated: new Date().toISOString(),
     },
+    [`binary_sensor.${p}_telemetry_online`]: mockEntity(`binary_sensor.${p}_telemetry_online`, opts.telemetry_online ?? "on"),
   };
   (opts.unavailable ?? []).forEach((eid) => {
     if (states[eid]) states[eid].state = "unavailable";
