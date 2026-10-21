@@ -76,6 +76,23 @@ check` completed successfully.
 
 The change is published on GitHub `main` as commit `5feec9d`.
 
+## Header cleanup (2026-10-21)
+
+Version `0.1.10` removes the duplicate battery-voltage indicator from the
+header. Voltage remains the first item in the statistics row, so no telemetry
+or entity mapping was removed. The v0.1.9 activity-confidence correction is
+preserved.
+
+The built asset SHA-256 is
+`ec788224d124c4f519dcfe3142440c39c33830885e1da291a4fe65fff60bd3d1`.
+It is deployed at `/config/www/nintendo-switch-card.js`; the Lovelace resource
+is `/local/nintendo-switch-card.js?v=0.1.10-no-header-voltage`. The replaced
+asset and resource registry are backed up under
+`.codex-backups/nintendo-switch-card-v0.1.10-20261021`. TypeScript, ESLint,
+80 tests, the Rollup build, deployed SHA-256 and `ha core check` passed. To
+roll back, restore both backup files and return the resource query to
+`v=0.1.9-activity-confidence`.
+
 ## Activity confidence correction (2026-08-28)
 
 Version `0.1.9` distinguishes a current game from retained game state when
