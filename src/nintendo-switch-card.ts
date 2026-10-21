@@ -96,11 +96,6 @@ export class NintendoSwitchCard extends LitElement {
   private _renderHeader(ents: ResolvedEntities): TemplateResult {
     const battery = this._stateOf(ents.battery_level);
     const charging = this._stateOf(ents.is_charging) === "on";
-    const voltage = formatStat(this._stateOf(ents.battery_voltage), {
-      unit: "V",
-      multiply: 0.001,
-      precision: 2,
-    });
     const chargeText = charging
       ? localize("state.charging", this._resolveLang())
       : localize("state.not_charging", this._resolveLang());
@@ -112,10 +107,6 @@ export class NintendoSwitchCard extends LitElement {
         <div class="header-item charge">
           <ha-icon icon="${charging ? "mdi:power-plug" : "mdi:power-plug-off"}"></ha-icon>
           <span>${chargeText}</span>
-        </div>
-        <div class="header-item voltage">
-          <ha-icon icon="mdi:flash-outline"></ha-icon>
-          <span>${voltage}</span>
         </div>
         <div class="header-item battery ${charging ? "charging-pulse" : ""} ${isLow ? "battery-low" : ""}">
           <ha-icon icon="${charging ? "mdi:flash" : "mdi:battery"}"></ha-icon>

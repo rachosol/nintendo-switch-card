@@ -27,11 +27,11 @@ describe("header", () => {
     c.remove();
   });
 
-  it("shows charging state and battery voltage", async () => {
+  it("shows charging state without duplicating battery voltage", async () => {
     const c = await mountCard({ is_charging: "on", battery_voltage: "4123" });
     const html = c.shadowRoot?.innerHTML ?? "";
     expect(html).toContain("Charging");
-    expect(html).toContain("4.12 V");
+    expect(c.shadowRoot?.querySelector(".header-item.voltage")).toBeNull();
     c.remove();
   });
 

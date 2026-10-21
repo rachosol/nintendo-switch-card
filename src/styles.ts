@@ -25,7 +25,6 @@ export const cardStyles = css`
     --mdc-icon-size: 18px;
     opacity: 0.75;
   }
-  .header-item.voltage { justify-self: center; }
   .header-item.battery { justify-self: end; }
   .header-item.charging-pulse {
     color: #00a854;
