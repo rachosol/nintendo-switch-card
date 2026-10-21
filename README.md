@@ -1,7 +1,7 @@
 # Nintendo Switch Card
 
 <p align="center">
-  <img src="assets/example-native-mqtt.png" alt="Nintendo Switch Card native MQTT example" width="500">
+  <img src="assets/example-native-mqtt.svg" alt="Nintendo Switch Card shown in Home Assistant with charge, battery and telemetry" width="500">
 </p>
 
 An independent Home Assistant Lovelace port of [Nintendo Switch Card](https://github.com/hudsonbrendon/nintendo-switch-card), adapted by [rachosol](https://github.com/rachosol) for the native MQTT telemetry published by [Switch HA Native](https://github.com/rachosol/switch-ha-native-port).
@@ -14,13 +14,14 @@ This port is based on the original [Nintendo Switch Card by Hudson Brendon](http
 
 ## Features
 
-- Header laid out with battery percentage, charging state and battery voltage.
+- Header with only charging state and battery percentage; voltage is shown once in the lower metrics.
 - White Joy-Con illustration, matching a white-console setup.
 - Current game, including title IDs resolved by Switch HA Native.
 - Console state derived from the reported game and charging entities. Telemetry
   cadence is intentionally not used to infer whether the console is asleep:
   it is lower both in sleep and while running only on battery.
 - Default stats for voltage, battery temperature, battery health and telemetry heartbeat.
+- No controls, refresh button or overflow menu unless an installation explicitly configures an action.
 - English, Spanish and Brazilian Portuguese user interface.
 - Explicit entity overrides for installations whose Home Assistant entity IDs include a suffix such as `_2` after a prior MQTT discovery cleanup.
 
