@@ -8,7 +8,8 @@ native MQTT telemetry produced by Switch HA Native.
 ## Current state
 
 - Keeps the compatible card type `custom:nintendo-switch-card`.
-- Shows battery percentage, charging state and voltage in a three-part header.
+- Shows only charging state and battery percentage in the header; voltage is
+  shown once as the first lower statistic.
 - Uses a white Joy-Con illustration by default.
 - Uses native telemetry for game, console state, heartbeat, health and
   temperature; the four default statistics are voltage, temperature, health
@@ -92,6 +93,16 @@ asset and resource registry are backed up under
 80 tests, the Rollup build, deployed SHA-256 and `ha core check` passed. To
 roll back, restore both backup files and return the resource query to
 `v=0.1.9-activity-confidence`.
+
+## README reference capture (2026-10-21)
+
+`assets/example-native-mqtt.png` is a user-supplied capture of the deployed
+Home Assistant card, not a mockup. It documents the default configuration
+shown in this installation: a charge indicator and battery percentage in the
+header, the white-console hero, the state line, and the four lower statistics.
+It deliberately contains no refresh button, overflow menu, submenu or action
+toolbar because no actions are configured for that card. The README points
+directly to this PNG.
 
 ## Activity confidence correction (2026-08-28)
 

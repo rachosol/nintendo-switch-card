@@ -80,7 +80,7 @@ This is a derivative port of Hudson Brendon's Nintendo Switch Card. The upstream
 
 Port independiente de la tarjeta Lovelace [Nintendo Switch Card](https://github.com/hudsonbrendon/nintendo-switch-card), adaptado por [rachosol](https://github.com/rachosol) para la telemetría MQTT nativa de [Switch HA Native](https://github.com/rachosol/switch-ha-native-port).
 
-Conserva el nombre `custom:nintendo-switch-card` para compatibilidad. Muestra porcentaje, estado de carga y voltaje de batería en el encabezado; además, juego actual, estado de consola, temperatura, salud y pulso de telemetría. La cadencia de telemetría no se usa para inferir reposo: es menor tanto en reposo como cuando la consola funciona sólo con batería. La ilustración predeterminada usa Joy-Con blancos. Las funciones retiradas del esquema antiguo (streaming, notificaciones, controles remotos, audio, mandos y tipo de cargador) no forman parte de este port.
+Conserva el nombre `custom:nintendo-switch-card` para compatibilidad. El encabezado muestra únicamente estado de carga y porcentaje de batería; el voltaje se muestra una sola vez en las métricas inferiores. Además presenta juego actual, estado de consola, temperatura, salud y pulso de telemetría. La cadencia de telemetría no se usa para inferir reposo: es menor tanto en reposo como cuando la consola funciona sólo con batería. La ilustración predeterminada usa Joy-Con blancos. Sin acciones configuradas, la tarjeta no muestra botón de recarga, menú, submenú ni barra de controles. Las funciones retiradas del esquema antiguo (streaming, notificaciones, controles remotos, audio, mandos y tipo de cargador) no forman parte de este port.
 
 ## Proyecto original
 
