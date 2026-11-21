@@ -24,7 +24,10 @@
     "reboot": "Reiniciar",
     "shutdown": "Apagar",
     "notify": "Notificar",
-    "notify_prompt": "Mensaje para enviar a la Switch:"
+    "notify_prompt": "Mensaje para enviar a la Switch:",
+    "charger": "Cargador",
+    "charger_on": "Encender cargador",
+    "charger_off": "Apagar cargador"
   },
   "error": {
     "no_entity": "Falta la configuración de entidad requerida",

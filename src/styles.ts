@@ -108,6 +108,23 @@ export const cardStyles = css`
   .tool:hover { background: var(--secondary-background-color, #f0f0f0); color: var(--primary-text-color, #222); }
   .tool:active { transform: scale(0.92); }
   .tool:focus-visible { outline: 2px solid var(--primary-color, #03a9f4); }
+  .tool.power {
+    width: auto;
+    gap: 6px;
+    padding: 0 12px 0 8px;
+    height: 32px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--divider-color, #ddd);
+  }
+  .tool.power ha-icon { --mdc-icon-size: 20px; }
+  .tool.power.on {
+    color: #00a854;
+    border-color: #00a854;
+    background: rgba(0, 168, 84, 0.1);
+  }
+  .tool.power:disabled { opacity: 0.45; cursor: default; }
   .compact .stats, .compact .toolbar { display: none; }
 
   @keyframes pulse {

@@ -21,7 +21,8 @@ This port is based on the original [Nintendo Switch Card by Hudson Brendon](http
   cadence is intentionally not used to infer whether the console is asleep:
   it is lower both in sleep and while running only on battery.
 - Default stats for voltage, battery temperature, battery health and telemetry heartbeat.
-- No controls, refresh button or overflow menu unless an installation explicitly configures an action.
+- No controls, refresh button or overflow menu unless an installation explicitly configures an action or a charger switch.
+- Optional **Charger** button (`power_switch`) that toggles the smart plug feeding the dock or charger, and turns green while it is on.
 - English, Spanish and Brazilian Portuguese user interface.
 - Explicit entity overrides for installations whose Home Assistant entity IDs include a suffix such as `_2` after a prior MQTT discovery cleanup.
 
@@ -61,6 +62,16 @@ entities:
 
 Use the IDs listed in **Settings → Devices & services → Entities** for your own installation. The card needs `battery_level` and `is_charging`; the remaining entries are optional but enable their respective display features.
 
+### Charger button
+
+If the dock or charger is powered through a smart plug, add its entity as `power_switch`. The card then shows a **Charger** button in its lower bar: it calls `<domain>.toggle` on that entity (for example `switch.toggle`), is highlighted while the plug is on, and is disabled while the plug is unavailable. Without `power_switch` the card layout is unchanged.
+
+```yaml
+type: custom:nintendo-switch-card
+entity: nintendo_switch
+power_switch: switch.nintendo_switch
+```
+
 ## Development
 
 ```bash
@@ -80,7 +91,7 @@ This is a derivative port of Hudson Brendon's Nintendo Switch Card. The upstream
 
 Port independiente de la tarjeta Lovelace [Nintendo Switch Card](https://github.com/hudsonbrendon/nintendo-switch-card), adaptado por [rachosol](https://github.com/rachosol) para la telemetría MQTT nativa de [Switch HA Native](https://github.com/rachosol/switch-ha-native-port).
 
-Conserva el nombre `custom:nintendo-switch-card` para compatibilidad. El encabezado muestra únicamente estado de carga y porcentaje de batería; el voltaje se muestra una sola vez en las métricas inferiores. Además presenta juego actual, estado de consola, temperatura, salud y pulso de telemetría. La cadencia de telemetría no se usa para inferir reposo: es menor tanto en reposo como cuando la consola funciona sólo con batería. La ilustración predeterminada usa Joy-Con blancos. Sin acciones configuradas, la tarjeta no muestra botón de recarga, menú, submenú ni barra de controles. Las funciones retiradas del esquema antiguo (streaming, notificaciones, controles remotos, audio, mandos y tipo de cargador) no forman parte de este port.
+Conserva el nombre `custom:nintendo-switch-card` para compatibilidad. El encabezado muestra únicamente estado de carga y porcentaje de batería; el voltaje se muestra una sola vez en las métricas inferiores. Además presenta juego actual, estado de consola, temperatura, salud y pulso de telemetría. La cadencia de telemetría no se usa para inferir reposo: es menor tanto en reposo como cuando la consola funciona sólo con batería. La ilustración predeterminada usa Joy-Con blancos. Sin acciones configuradas, la tarjeta no muestra botón de recarga, menú, submenú ni barra de controles. Con la opción `power_switch` (por ejemplo `power_switch: switch.nintendo_switch`, el enchufe inteligente que alimenta la base o el cargador) muestra un botón **Cargador** que lo enciende y apaga (`<dominio>.toggle`), se resalta en verde mientras está encendido y queda deshabilitado si el enchufe no está disponible. Las funciones retiradas del esquema antiguo (streaming, notificaciones, controles remotos, audio, mandos y tipo de cargador) no forman parte de este port.
 
 ## Proyecto original
 

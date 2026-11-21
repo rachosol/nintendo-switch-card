@@ -94,6 +94,32 @@ asset and resource registry are backed up under
 roll back, restore both backup files and return the resource query to
 `v=0.1.9-activity-confidence`.
 
+## Charger button (2026-11-21)
+
+Version `0.1.11` adds the optional `power_switch` setting. When set, the lower
+bar shows a **Charger** button that calls `<domain>.toggle` on that entity,
+is green while it is `on` and is disabled while it is `unavailable` or
+`unknown`. Without `power_switch` the rendered markup is unchanged (the four
+render snapshots differ only by the added CSS). Labels are localized (en, es,
+pt-BR). In this installation it is bound to the Zigbee plug
+`switch.nintendo_switch` (TS011F). The charger automations
+(`nintendo_switch_power.yaml`, persistent shutdown) still act on that plug: a
+manual off while a game is running can be turned back on by "Keep charger on
+while playing", which is expected.
+
+Verified: TypeScript, ESLint, 87 tests (6 new in `tests/card.power.test.ts`),
+Rollup build. Built asset SHA-256
+`82de62011ed8c45498e7859b10b154bdaed4dbb6fd10b7d339c561e19e19d9db`, deployed
+at `/config/www/nintendo-switch-card.js` (same hash) with the resource
+`/local/nintendo-switch-card.js?v=0.1.11-charger-button` (HTTP 200). The
+dashboard card gained `power_switch: switch.nintendo_switch` through the
+WebSocket `lovelace/config/save` (live config equal to the file before, only
+that key changed, re-read equal). `ha core check` passed. Backups of the
+previous asset, `lovelace_resources` and `lovelace.lovelace` are in Home
+Assistant under `.codex-backups/nintendo-switch-card-v0.1.11-20261121`; to
+roll back, restore them and return the resource query to
+`v=0.1.10-no-header-voltage`.
+
 ## README reference capture (2026-10-21)
 
 `assets/example-native-mqtt.png` is a user-supplied capture of the deployed

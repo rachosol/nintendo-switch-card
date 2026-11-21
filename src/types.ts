@@ -35,6 +35,8 @@ export interface NintendoSwitchCardConfig {
   stats?: StatConfig[];
   actions?: ActionConfig[];
   notify_action?: NotifyAction;
+  /** Optional on/off entity (e.g. the charger smart plug) shown as a toggle button. */
+  power_switch?: string;
 }
 
 export type ResolvedEntities = Record<EntityKey, string>;

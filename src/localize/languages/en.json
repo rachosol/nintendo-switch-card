@@ -24,7 +24,10 @@
     "reboot": "Reboot",
     "shutdown": "Shutdown",
     "notify": "Notify",
-    "notify_prompt": "Message to send to the Switch:"
+    "notify_prompt": "Message to send to the Switch:",
+    "charger": "Charger",
+    "charger_on": "Turn charger on",
+    "charger_off": "Turn charger off"
   },
   "error": {
     "no_entity": "Missing required entity configuration",

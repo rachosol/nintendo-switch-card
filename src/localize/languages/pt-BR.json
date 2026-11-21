@@ -24,7 +24,10 @@
     "reboot": "Reiniciar",
     "shutdown": "Desligar",
     "notify": "Notificar",
-    "notify_prompt": "Mensagem para enviar ao Switch:"
+    "notify_prompt": "Mensagem para enviar ao Switch:",
+    "charger": "Carregador",
+    "charger_on": "Ligar carregador",
+    "charger_off": "Desligar carregador"
   },
   "error": {
     "no_entity": "Configuração de entidade obrigatória ausente",

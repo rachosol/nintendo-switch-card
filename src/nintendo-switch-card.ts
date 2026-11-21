@@ -53,6 +53,12 @@ export class NintendoSwitchCard extends LitElement {
     if (config.stats && config.stats.length > 4) {
       throw new Error("invalid_config: stats can have at most 4 items");
     }
+    if (config.power_switch !== undefined) {
+      const ps = config.power_switch;
+      if (typeof ps !== "string" || !/^[a-z_]+\.[a-z0-9_]+$/.test(ps)) {
+        throw new Error("invalid_config: power_switch must be an entity id such as `switch.charger`");
+      }
+    }
     if (config.image && config.image !== "switch-default") {
       try {
         if (!config.image.startsWith("/local/") && !config.image.startsWith("/")) {
@@ -196,16 +202,49 @@ export class NintendoSwitchCard extends LitElement {
     this.hass.callService(domain, service, action.service_data, action.target);
   }
 
+  private _togglePower(entityId: string): void {
+    if (!this.hass) return;
+    const domain = entityId.split(".")[0];
+    this.hass.callService(domain, "toggle", { entity_id: entityId });
+  }
+
+  private _renderPower(lang: string): TemplateResult | typeof nothing {
+    const entityId = this._config?.power_switch;
+    if (!entityId) return nothing;
+    const st = this._stateOf(entityId);
+    const isOn = st === "on";
+    const disabled = st === "unavailable" || st === "unknown";
+    const label = localize("action.charger", lang);
+    const title = disabled
+      ? `${label}: ${localize("state.unavailable", lang)}`
+      : localize(isOn ? "action.charger_off" : "action.charger_on", lang);
+    return html`
+      <button
+        class="tool power ${isOn ? "on" : "off"}"
+        aria-label=${title}
+        aria-pressed=${isOn ? "true" : "false"}
+        title=${title}
+        ?disabled=${disabled}
+        @click=${() => this._togglePower(entityId)}
+      >
+        <ha-icon icon=${isOn ? "mdi:power-plug" : "mdi:power-plug-off-outline"}></ha-icon>
+        <span>${label}</span>
+      </button>
+    `;
+  }
+
   private _renderToolbar(ents: ResolvedEntities): TemplateResult | typeof nothing {
     const lang = this._resolveLang();
     const actions = this._config?.actions ?? this._defaultActions();
     const audioState = this._stateOf(ents.audio_output);
     const audioAvailable = audioState !== "unavailable";
-    if (actions.length === 0 && !audioAvailable) return nothing;
+    const hasPower = !!this._config?.power_switch;
+    if (actions.length === 0 && !audioAvailable && !hasPower) return nothing;
 
     return html`
       <div class="toolbar">
         <div class="tool-group">
+          ${this._renderPower(lang)}
           ${actions.map((a) => {
             const label = a.name_key ? localize(a.name_key, lang) : (a.name ?? a.service);
             const cls = a.name_key === "action.reboot"
